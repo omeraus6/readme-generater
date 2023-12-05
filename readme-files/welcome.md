@@ -1,41 +1,8 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-const licenseArr = ["Apache","Academic","GNU","ISC","MIT","Mozilla","Open"];
-
-
-function renderLicenseBadge(license) {
-  var notfound =0 ;
-  for (let i=0 ;i<licenseArr.length;i++)
-  {
-    if(license == licenseArr[i])
-      notfound = 1;
-  }
-
-  if(notfound == 0)
-  {
-    console.log("license not found");
-  }
-  
-
-}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-  return `![ ${license} license](https://img.shields.io/badge/License-${license}-blue.svg)`;
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+# welcome
 
 ## Description
 
-${data.description}
+dsdsdsdsds sd sdshdjhsjd sjdsjd jsdhjs dhjs djshd sjhd jshdjs dhjs dhjshdjshdjshd jshdj sdjhsjd
 
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
@@ -55,17 +22,17 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-${data.installation}
+dj shdj sdhjshd jshdsj dsjdhsjdh sjhdsjd hsjhd sjdhsjd hsjd hsjd hsjdh sjdh sj dhsjdhsjdhsjdhsjd
 
-${data.questions}
+dfg hdgfh dghfgdhfgdhfgdhf gdhf gdhfdgfhdgfhdgf dhgf dhf gdhfg dhg fdhgfhdgfhdgfhdgf
 
 What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 ## Usage
 
-${data.usage}
-[${data.username}](https://github.com/${data.username})
-${data.email}
+jdhjsh djshd jshdjshdjsh dsjhdsjhdsjdhsjd hsjdh sjdhsjdhsjd hsjdh sjdhsjhdjshd
+[dfj hdjfhdjhfdjfhdjhf jdhf djhfdjhfjdhfdj fhdjfh jdhfdjhf djf](https://github.com/dfj hdjfhdjhfdjfhdjhf jdhf djhfdjhfjdhfdj fhdjfh jdhfdjhf djf)
+fgdh gfhdgfhdgf hdgfdh gfdhf gdhfg dhgfdhg fdhfgdhf gdhfgdhfg dhfgdhgf
 
 
 Provide instructions and examples for use. Include screenshots as needed.
@@ -86,9 +53,9 @@ If you followed tutorials, include links to those here as well.
 
 ## License
 
-![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)
+![badge](https://img.shields.io/badge/license-GNU-brightgreen)
 <br />
-This application is covered by the ${data.license} license. 
+This application is covered by the GNU license. 
 
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
 
@@ -107,63 +74,12 @@ Badges aren't necessary, per se, but they demonstrate street cred. Badges let ot
 If your project has a lot of features, list them here.
 
 ## How to Contribute
-${data.contributing}
+dhjs hdjshdjsh djshd jshdjshd sjdhsjhdsj dhjshdjsdjshd jshd
 
 If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
 ## Tests
 
-${data.tests}
+ fjdhgfhjdhfj hdjfhdjf hdjfhdjfh djf hdjfh djhfdjhf dj hfdjhfjdhfjdhfdj hf djhfdj fhdj fhdj
 Go the extra mile and write tests for your application. Then provide examples on how to run them here.
   
-`;
-}
-
-module.exports = {generateMarkdown};
-
-  
- // ## Table of Contents
-  //- [Description](#description)
-  //- [Installation](#installation)
-  //- [Usage](#usage)
-  //- [License](#license)
-  //- [Contributing](#contributing)
-  //- [Tests](#tests)
-  //- [Questions](#questions)
-  
-  
- // ## Questions
- 
-  
- // _This README was generated with ❤️ by [README-generator](https://github.com/jpd61/README-generator) 🔥🔥🔥_
-
-
-//const music = {
-  //title: "Yeke Yeke",
-  //artist: "Mory Kanté",
-  //album: "Akwaba Beach"
-//};
-
-// Inside of the backticks we use ${} to get access to the data inside of our object.
-
-//const songSnippet = `${music.title} by ${music.artist} from the album ${music.album} is currently playing`;
-
-//console.log(songSnippet)
-
-
-//const pie = 'apple';
-
-//const predictable = () => 1;
-
-// module.exports is an object we use to store variables or methods
-//module.exports = {
-  //pie,
-  //predictable,
-//};
-
-
-//const badmath = require('./badmath.js');
-
-//console.log(badmath.pie);
-
-//console.log(badmath.predictable());
