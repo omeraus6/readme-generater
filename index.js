@@ -1,12 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-//const generateReadme = require("./utils/generateMarkdown")
+const generateReadme = require("./utils/generateMarkdown")
 
-//const util = require("util");
-
-//const writeFileAsync = util.promisify(fs.writeFile);
-
+//- What was your motivation?
+//- Why did you build this project?
+//- What problem does it solve?
+//- What did you learn?
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -21,15 +21,15 @@ const names=["title","description","installation","usage",
     "license","contributing","tests","questions","username","email"];
 
 
-const obj={};
+const dataobj={};
 
 function questionmsg(){
   let index = 0;
+
   const askQuestion = () => {
     inquirer.prompt([{type : "input",name: names[index], message: questions[index]}]).then((data) => {
-        console.log(data);
-        const object = Object.assign(obj,data);
-        console.log(obj);
+        Object.assign(dataobj,data);
+        console.log(dataobj);
       index++;
      
       if (index < questions.length && index != 4) {
@@ -39,19 +39,24 @@ function questionmsg(){
       {
         askQuestion2();
       }
+      else if(index == questions.length )
+      {
+        const result = generateReadme.generateMarkdown(dataobj);
+        const filename = `./readme-files/${dataobj.title.toLowerCase().split(' ').join('')}.md`;
+        writeToFile(filename,result);
+        
+      }
 
     });
+
+    
   } 
   const askQuestion2 = () => {
     inquirer.prompt([{type : "list",name: names[index], message: questions[index],
          choices: ["Apache","Academic","GNU","ISC","MIT","Mozilla","Open"]}]).then((data) => {
-            console.log(data);
-            const object = Object.assign(obj,data);
-            console.log(obj);
+            Object.assign(dataobj,data);
       index++;
-
-      
-    
+ 
       if (index < questions.length) {
         askQuestion (); 
       }
@@ -63,44 +68,22 @@ function questionmsg(){
 }
 
 
-//const type= ["input","input","input","input",];
-     //  .then((data) => {
-     //    const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-  
-     //    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-      //      err ? console.log(err) : console.log('Success!')
-      // );
-   // });
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) =>
+      err ? console.log(err) : console.log('README file saved on "Readme-files" folder'));
+}
 
 // TODO: Create a function to initialize app
 function init() {
-   questionmsg();
+  
+  questionmsg();
+
 }
+
 
 // Function call to initialize app
 init();
-
-// Declaring the dependencies and variables
-
-//Prompt the user questions to populate the README.md
-
-
-// Async function using util.promisify 
  
- //async function init() {
-   // try {
-        // Ask user questions and generate responses
-     //   const answers = await promptUser();
-       // const generateContent = generateReadme(answers);
-        // Write new README.md to dist directory
-        //await writeFileAsync('./dist/README.md', generateContent);
-        //console.log('✔️  Successfully wrote to README.md');
-    //}   catch(err) {
-      //  console.log(err);
-   // }
-  //}
+ 
   
-  //init();  
