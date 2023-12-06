@@ -22,6 +22,7 @@ another process is (node_modules) and it's install using this command in termina
 run the project from the terminal and write "node index.js", if the project doesn't show the question starting generated that mean we have to install two package (package.json , node_modules)
 after the question generate will save the project question values information to high-quality professional README.md 
 
+github : https://github.com/omeraus6/readme-generater
 
 ![alt text](images/1.png)
 image 1: Question input come from generate function question and the question save on arrat
@@ -47,6 +48,11 @@ image 7: this function generate question prompt from question and names array.
 
 ![alt text](images/8.png)
 image 8: Save file function
+
+![alt text](run-video/readmegenerate.mp4)
+video: show the project run
+
+
 
 
 ## Credits
