@@ -2,18 +2,22 @@
 // If there is no license, return an empty string
 const licenseArr = ["Apache","Academic","GNU","ISC","MIT","Mozilla","Open"];
 
-
+//check if licence come from user input include from licenseArr
 function renderLicenseBadge(license) {
-  var notfound =0 ;
+  var found =0 ;
   for (let i=0 ;i<licenseArr.length;i++)
   {
     if(license == licenseArr[i])
-      notfound = 1;
+    {
+      found = 1;
+      return `${renderLicenseLink(license)} \n ${renderLicenseSection(license)}`
+    }
+      
   }
 
-  if(notfound == 0)
+  if(found == 0)
   {
-    console.log("license not found");
+    return `license name :  ${license} is not found on license record data\n `;
   }
   
 
@@ -22,12 +26,14 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  return `![ ${license} license](https://img.shields.io/badge/License-${license}-blue.svg)`;
+  return `![ ${license} license](https://img.shields.io/badge/License-${license}-blue.svg)\n`;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  return `This application is covered by the ${license} license`
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -37,133 +43,55 @@ function generateMarkdown(data) {
 
 ${data.description}
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
 
 ## Table of Contents (Optional)
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
+- [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+  
 
 ## Installation
 
 ${data.installation}
 
-${data.questions}
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 ## Usage
 
 ${data.usage}
-[${data.username}](https://github.com/${data.username})
-${data.email}
 
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an assets/image folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    md
-    ![alt text](assets/images/screenshot.png)
-    
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+${data.contributing}
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
 
 ## License
 
-![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)
-<br />
-This application is covered by the ${data.license} license. 
+${renderLicenseBadge(data.license)}
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
 
----
+## Questions
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+${data.questions}
 
-## Badges
+Github account : [${data.username}](https://github.com/${data.username})
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+E-mail : ${data.email}
 
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-${data.contributing}
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
 ## Tests
 
 ${data.tests}
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
   
 `;
 }
 
 module.exports = {generateMarkdown};
 
-  
- // ## Table of Contents
-  //- [Description](#description)
-  //- [Installation](#installation)
-  //- [Usage](#usage)
-  //- [License](#license)
-  //- [Contributing](#contributing)
-  //- [Tests](#tests)
-  //- [Questions](#questions)
-  
-  
- // ## Questions
- 
-  
- // _This README was generated with ❤️ by [README-generator](https://github.com/jpd61/README-generator) 🔥🔥🔥_
-
-
-//const music = {
-  //title: "Yeke Yeke",
-  //artist: "Mory Kanté",
-  //album: "Akwaba Beach"
-//};
-
-// Inside of the backticks we use ${} to get access to the data inside of our object.
-
-//const songSnippet = `${music.title} by ${music.artist} from the album ${music.album} is currently playing`;
-
-//console.log(songSnippet)
-
-
-//const pie = 'apple';
-
-//const predictable = () => 1;
-
-// module.exports is an object we use to store variables or methods
-//module.exports = {
-  //pie,
-  //predictable,
-//};
-
-
-//const badmath = require('./badmath.js');
-
-//console.log(badmath.pie);
-
-//console.log(badmath.predictable());

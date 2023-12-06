@@ -10,8 +10,8 @@ const questions = [
     "What's your project title?","What's the description of your project?",
     "What's your project installation?","What's this project usage for?",
     "What's your project license ?","Who are the contributors of this project?",
-    "Is there a test included?","What do I do if I have an issue? ",
-    "Please enter your GitHub username: ","Please enter your email: "
+    "How does your project run or test?","What do I do if I have an issue? ",
+    "What's your GitHub username? ","What's your email? "
 ];
 
 const names=["title","description","installation","usage",
@@ -20,13 +20,13 @@ const names=["title","description","installation","usage",
 
 const dataobj={};
 
+//generate question prompt
 function questionmsg(){
   let index = 0;
 
   const askQuestion = () => {
     inquirer.prompt([{type : "input",name: names[index], message: questions[index]}]).then((data) => {
         Object.assign(dataobj,data);
-        console.log(dataobj);
       index++;
      
       if (index < questions.length && index != 4) {
@@ -39,7 +39,8 @@ function questionmsg(){
       else if(index == questions.length )
       {
         const result = generateReadme.generateMarkdown(dataobj);
-        const filename = `./readme-files/${dataobj.title.toLowerCase().split(' ').join('')}.md`;
+        const filename = `./readme-files/README.md`;
+            //`./readme-files/${dataobj.title.toLowerCase().split(' ').join('')}.md`;
         writeToFile(filename,result);
         
       }
