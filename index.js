@@ -3,10 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateReadme = require("./utils/generateMarkdown")
 
-//- What was your motivation?
-//- Why did you build this project?
-//- What problem does it solve?
-//- What did you learn?
+//What was your motivation? , Why did you build this project? ,What problem does it solve?, What did you learn?
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -48,8 +45,7 @@ function questionmsg(){
       }
 
     });
-
-    
+  
   } 
   const askQuestion2 = () => {
     inquirer.prompt([{type : "list",name: names[index], message: questions[index],
